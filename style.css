@@ -1,0 +1,104 @@
+/* 🌎 전체 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222; /* 연한 검정 */
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh; /* 화면 전체 사용 */
+    overflow: hidden; /* 전체 화면 유지 */
+}
+
+/* 📌 왼쪽 사이드바 (15% 너비로 설정) */
+.sidebar {
+    width: 15%; /* 15% 고정 너비 */
+    background-color: #333;
+    padding: 20px;
+    height: 100vh; /* 높이를 화면 전체로 고정 */
+    overflow-y: auto; /* 내용이 길어지면 스크롤 가능 */
+    position: fixed; /* 고정된 위치 */
+    flex-shrink: 0; /* 사이즈 줄어들지 않도록 고정 */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* 📌 검색창 */
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    background-color: #555;
+    color: white;
+    border-radius: 5px;
+}
+
+.search-bar::placeholder {
+    color: #aaa;
+}
+
+/* 📌 메뉴 항목 스타일 */
+#topics {
+    list-style: none;
+    padding: 0;
+}
+
+#topics li {
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent; /* 배경 없애기 */
+    color: #777; /* 기본 글자 색은 연한 회색 */
+    font-size: 16px;
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+/* 📌 "분류" 항목 스타일 */
+#topics li.category {
+    color: white; /* "분류" 글자 색은 흰색 */
+    cursor: default; /* 클릭 불가로 설정 */
+    font-weight: bold;
+}
+
+/* 📌 메뉴 항목 hover 효과 */
+#topics li:hover {
+    color: white; /* 마우스를 올리면 글자 색을 흰색으로 변경 */
+}
+
+/* 📌 오른쪽 내용 영역 (85% 너비로 설정) */
+.content {
+    margin-left: 15%; /* 왼쪽 사이드바 공간을 고려하여 여백 추가 */
+    width: 85%; /* 오른쪽 콘텐츠는 85% */
+    padding: 20px;
+    height: 100vh; /* 높이 고정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 🖥️ 반응형 (태블릿, 모바일 최적화) */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        overflow: auto; /* 모바일에서는 스크롤 허용 */
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        overflow-y: hidden;
+    }
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
